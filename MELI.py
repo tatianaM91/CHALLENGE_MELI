@@ -18,6 +18,8 @@ def importar_excel():
             Fila.append(hoja.cell_value(i, j))
         Bd.append(Fila)
         Fila=[]
+        
+    print (Bd)
 
 def importar_json():
     global Bd
@@ -50,6 +52,8 @@ def importar_json():
         Fila.append(db_lista[i]['classification'])
         Bd2.append(Fila)
         Fila=[]
+        
+    print (Bd2)
 
 def Conectar_servidor(dn, e1, e2, cla, pos):
     global Lista_aux
