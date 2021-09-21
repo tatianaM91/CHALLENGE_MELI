@@ -52,25 +52,25 @@ def importar_json():
         Fila.append(db_lista[i]['classification'])
         Bd2.append(Fila)
         Fila=[]
-        
+   
     print (Bd2)
 
 def Conectar_servidor(dn, e1, e2, cla, pos):
     global Lista_aux
     # Crear el objeto mensaje
     mensaje = MIMEMultipart()             
-    mensaje['de']     = 'agropru1@gmail.com'       #Correo de prueba para enviar algo desde la página
-    mensaje['para']   = 'jtmartinm@gmail.com'      #Correo funcionario a cargo            
+    mensaje['de']     = 'agropru1@gmail.com'   #se crea cuenta de pruebas para envio de correos    
+    mensaje['para']   = 'leandro.torchan@mercadolibre.com' #se realizo envio con correo de pruebas juliethmartin@hotmail.com               
     #Cuerpo del mensaje
     msn = ('Este mensaje fue enviado por: Grupo de seguridad Mercado Libre'+'\n'+
            '(Nombre BD = '+dn+', Correo owner = '+e1+', Correo manager = '+e2+')'+'\n'+
            'Solicitamos de su colaboracion como owner de la cuenta con ID ' + Lista_aux[pos]+
            ', ya que tiene clasificacion de '+ str(cla) +', por lo que solicitamos de su aprobación.')
     mensaje.attach(MIMEText(msn, 'plain'))
-    # Datos de acceso a la cuenta de usuario
+    # Datos de acceso a la cuenta de usuario creada para pruebas para envio de correo
     usuario   ='agropru1'
     contrasena='Agrosavia123'          
-    #Interfaz de conexión con el servidor de gmail
+    
     servidor = smtplib.SMTP('smtp.gmail.com:587')
     servidor.starttls()
     servidor.login(usuario, contrasena)
